@@ -1,0 +1,35 @@
+{
+  "name": "adbase",
+  "version": "1.0.0",
+  "description": "Contabilidad dBase - Accounting dBase (Base de datos para Contabilidad) con Integración Windows Server AD, RADIUS NPS y Web Login Gate",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve .",
+    "gateway": "node ./src/js/server/windows-ad-ldap-radius-gateway.js",
+    "service:install": "node ./src/js/server/windows-service-manager.js install",
+    "service:uninstall": "node ./src/js/server/windows-service-manager.js uninstall",
+    "service:start": "node ./src/js/server/windows-service-manager.js start",
+    "service:stop": "node ./src/js/server/windows-service-manager.js stop",
+    "service:status": "node ./src/js/server/windows-service-manager.js status"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbaezh78/adBase.git"
+  },
+  "keywords": [
+    "adbase",
+    "accounting-dbase",
+    "contabilidad-dbase",
+    "erp",
+    "accounting",
+    "contabilidad",
+    "modular",
+    "windows-active-directory",
+    "radius-nps"
+  ],
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "firebase": "^12.12.0"
+  }
+}

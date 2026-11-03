@@ -1,0 +1,351 @@
+/* Terminal de Punto de Venta (POS) Independiente */
+.pos-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: var(--space-3);
+}
+
+.pos-product-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pos-product-card:hover {
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-bg-surface-elevated);
+  transform: translateY(-2px);
+}
+
+.pos-product-sku {
+  font-family: var(--font-family-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+}
+
+.pos-product-name {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.pos-product-price {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-success);
+}
+
+.pos-ticket-summary {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pos-summary-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.pos-summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  border-top: 1px dashed var(--color-border-strong);
+  padding-top: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+/* Conector Windows Server Active Directory / LDAP */
+.ad-domain-topology {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ad-node-card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-default);
+  border-left: 3px solid var(--color-brand-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.ad-node-title {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-brand-primary);
+}
+
+.ad-node-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Estados Financieros y Checklists de Cierre */
+.checklist-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.financial-statement-section {
+  margin-bottom: var(--space-4);
+}
+
+.financial-statement-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-bg-surface);
+  border-left: 3px solid var(--color-brand-primary);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+}
+
+/* ==========================================================================
+   VENTANA ESTILO SAP LOGON 800 PARA SELECCIÓN DE EMPRESA Y CONEXIONES
+   ========================================================================== */
+.sap-logon-window {
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sap-logon-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border-default);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.sap-logon-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 10px 16px;
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-default);
+  flex-wrap: wrap;
+}
+
+.sap-logon-actions-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sap-logon-link-btn {
+  color: var(--color-brand-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.sap-logon-link-btn:hover {
+  background-color: var(--color-bg-surface-elevated);
+  border-color: var(--color-brand-primary);
+}
+
+.sap-logon-subbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.sap-logon-filter-input {
+  width: 260px;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+}
+
+.sap-logon-filter-input:focus {
+  border-color: var(--color-brand-primary);
+}
+
+.sap-logon-body-split {
+  display: grid;
+  grid-template-columns: 205px 1fr;
+  min-height: 290px;
+  background-color: var(--color-bg-primary);
+}
+
+.sap-logon-workspace-tree {
+  border-right: 2px solid var(--color-border-strong);
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.sap-tree-header {
+  padding: 8px 12px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.sap-tree-node {
+  padding: 8px 16px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sap-tree-node:hover,
+.sap-tree-node.is-active-node {
+  background-color: rgba(56, 189, 248, 0.22);
+  border-left: 3px solid var(--color-brand-primary);
+  font-weight: 700;
+}
+
+.sap-logon-connections-grid {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 330px;
+}
+
+.sap-connections-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-xs);
+}
+
+.sap-connections-table th {
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  padding: 8px 12px;
+  border-right: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--color-border-strong);
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sap-connections-table td {
+  padding: 7px 12px;
+  border-right: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.sap-connections-table tbody tr {
+  cursor: pointer;
+}
+
+.sap-connections-table tbody tr:hover {
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+.sap-connections-table tbody tr.is-sap-selected {
+  background-color: rgba(29, 112, 219, 0.36);
+  outline: 1px solid var(--color-brand-primary);
+}
+
+.sap-logon-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.btn-sap-access {
+  background-color: #1976d2;
+  color: #ffffff;
+  border: 1px solid #42a5f5;
+  padding: 7px 18px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-sap-access:hover {
+  background-color: #1565c0;
+}
+
+/* Tarjetas de Selección de Tema */
+.theme-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--space-3);
+}
+
+.theme-selector-card {
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-selector-card:hover {
+  border-color: var(--color-brand-primary);
+  transform: translateY(-2px);
+}
+
+.theme-selector-card.is-active-theme {
+  border-color: var(--color-success);
+  background-color: var(--color-bg-surface);
+}

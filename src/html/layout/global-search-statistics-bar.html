@@ -1,0 +1,40 @@
+<section id="global-search-intelligence-panel" class="search-intelligence-hub is-hidden" aria-label="Resultados de Búsqueda Inteligente y Estadísticas">
+  <div class="search-hub-header">
+    <div class="search-hub-title-group">
+      <span class="badge-pill badge-info">MOTOR DE BÚSQUEDA POBLADO EN TIEMPO REAL</span>
+      <span id="search-active-query-label" class="search-query-badge">Término: *</span>
+      <span id="search-active-count-label" class="badge-pill badge-success">0 coincidencias</span>
+    </div>
+    <button type="button" id="btn-close-search-intelligence" class="btn-action btn-secondary btn-xs">
+      Cerrar Panel de Búsqueda (ESC)
+    </button>
+  </div>
+
+  <!-- Estadísticas Dinámicas de la Búsqueda Actual -->
+  <div id="search-live-statistics-cards" class="stats-kpi-grid"></div>
+
+  <!-- Contenido Poblado + Inspector Detallado -->
+  <div class="search-hub-grid">
+    <div class="enterprise-panel">
+      <div class="enterprise-panel-header">
+        <h3 class="enterprise-panel-title">Registros Poblados por la Búsqueda</h3>
+        <span class="badge-pill badge-purple">Click para inspeccionar o abrir módulo</span>
+      </div>
+      <div class="enterprise-panel-body">
+        <div id="search-populated-records-container" class="search-populated-list"></div>
+      </div>
+    </div>
+
+    <div class="enterprise-panel">
+      <div class="enterprise-panel-header">
+        <h3 class="enterprise-panel-title">Contenido Completo y Auditoría del Registro</h3>
+        <button type="button" id="btn-jump-to-source-module" class="btn-action btn-primary btn-xs">
+          Ir al Módulo Origen
+        </button>
+      </div>
+      <div class="enterprise-panel-body">
+        <div id="search-record-content-inspector" class="search-content-inspector"></div>
+      </div>
+    </div>
+  </div>
+</section>

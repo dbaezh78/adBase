@@ -1,0 +1,447 @@
+.erp-app-shell {
+  display: grid;
+  grid-template-rows: var(--header-height) calc(100vh - var(--header-height) - var(--statusbar-height)) var(--statusbar-height);
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "statusbar statusbar";
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-bg-primary);
+}
+
+/* Cabecera Global y Comando T-Code */
+.erp-top-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0 var(--space-5);
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-default);
+  z-index: 30;
+}
+
+.erp-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 245px;
+}
+
+.erp-brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.erp-brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.erp-brand-name {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.erp-brand-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-brand-primary);
+  font-weight: 500;
+}
+
+.erp-header-telemetry {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.telemetry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 12px;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.telemetry-pill:hover {
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-bg-surface-elevated);
+}
+
+.telemetry-pill-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.telemetry-company-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+
+.status-dot-online {
+  background-color: var(--color-success);
+  box-shadow: 0 0 8px var(--color-success);
+}
+
+.status-dot-warning {
+  background-color: var(--color-warning);
+  box-shadow: 0 0 8px var(--color-warning);
+}
+
+/* Barra Lateral de Módulos Independientes (Estilo Microsoft 365 Admin Center - Imagen 1 y 2) */
+.erp-sidebar {
+  grid-area: sidebar;
+  width: var(--sidebar-width);
+  background-color: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border-default);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--space-2) 0;
+  transition: width 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.erp-sidebar.is-rail-collapsed {
+  width: 56px;
+}
+
+.m365-rail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 10px 8px 10px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-2);
+  min-height: 40px;
+}
+
+.m365-hamburger-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.m365-hamburger-btn:hover {
+  background-color: var(--color-bg-surface);
+  color: var(--color-brand-primary);
+}
+
+.m365-autohide-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.m365-autohide-label input {
+  width: 13px;
+  height: 13px;
+  accent-color: var(--color-brand-primary);
+  cursor: pointer;
+}
+
+.m365-nav-icon-box {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.m365-nav-svg-icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+
+.m365-chevron-svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.sidebar-section-group {
+  margin-bottom: var(--space-1);
+  padding: 0 var(--space-2);
+}
+
+.sidebar-section-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.sidebar-section-title:hover {
+  background-color: var(--color-bg-surface);
+  color: var(--color-brand-primary);
+}
+
+.sidebar-section-chevron {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.sidebar-section-group.is-collapsed .sidebar-section-chevron {
+  transform: rotate(-90deg);
+}
+
+.sidebar-section-items {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+}
+
+.sidebar-section-group.is-collapsed .sidebar-section-items {
+  display: none;
+}
+
+.sidebar-module-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  margin-bottom: 2px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-align: left;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  border: 1px solid transparent;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-module-btn:hover {
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+
+.sidebar-module-btn.is-active {
+  background-color: rgba(56, 189, 248, 0.14);
+  color: var(--color-text-primary);
+  border-left-color: var(--color-brand-primary);
+  font-weight: 600;
+}
+
+.sidebar-module-label-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-module-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-tcode-badge {
+  font-family: var(--font-family-mono);
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.sidebar-module-btn.is-active .sidebar-tcode-badge {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-brand-primary);
+  font-weight: 700;
+}
+
+/* MODO CONTRAÍDO ESTILO MICROSOFT 365 (IMAGEN 2: SOLO ICONOS A LA IZQUIERDA) */
+.erp-sidebar.is-rail-collapsed .m365-rail-header,
+.cinta-vertical-sidebar.is-rail-collapsed .m365-rail-header {
+  justify-content: center;
+  padding: 4px 0 8px 0;
+}
+
+.erp-sidebar.is-rail-collapsed .m365-autohide-label,
+.cinta-vertical-sidebar.is-rail-collapsed .m365-autohide-label,
+.erp-sidebar.is-rail-collapsed .sidebar-module-text,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-module-text,
+.erp-sidebar.is-rail-collapsed .sidebar-tcode-badge,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-tcode-badge,
+.erp-sidebar.is-rail-collapsed .sidebar-section-title,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-section-title {
+  display: none;
+}
+
+.erp-sidebar.is-rail-collapsed .sidebar-section-group,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-section-group {
+  padding: 2px 4px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.erp-sidebar.is-rail-collapsed .sidebar-section-group .sidebar-section-items,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-section-group .sidebar-section-items {
+  display: flex;
+}
+
+.erp-sidebar.is-rail-collapsed .sidebar-module-btn,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-module-btn {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.erp-sidebar.is-rail-collapsed .sidebar-module-label-group,
+.cinta-vertical-sidebar.is-rail-collapsed .sidebar-module-label-group {
+  justify-content: center;
+  gap: 0;
+}
+
+/* Área de Trabajo Principal */
+.erp-main-workspace {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: var(--space-5);
+  gap: var(--space-5);
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.05), transparent 45%),
+              var(--color-bg-primary);
+}
+
+.module-header-banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.module-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.module-overline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-brand-primary);
+}
+
+.module-main-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.module-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 780px;
+}
+
+.module-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* Barra de Estado Inferior */
+.erp-bottom-statusbar {
+  grid-area: statusbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-5);
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border-default);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.statusbar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.statusbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.statusbar-item strong {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .erp-app-shell {
+    grid-template-columns: 220px 1fr;
+  }
+}

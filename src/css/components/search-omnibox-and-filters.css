@@ -1,0 +1,267 @@
+/* Omnibox de Búsqueda Inteligente y T-Code (Mejor que SAP) */
+.erp-omnibox-container {
+  flex: 1;
+  max-width: 680px;
+  position: relative;
+}
+
+.erp-omnibox-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 4px 8px 4px 14px;
+  gap: var(--space-2);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.erp-omnibox-wrapper:focus-within {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.omnibox-scope-select {
+  background-color: var(--color-bg-surface);
+  color: var(--color-brand-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-default);
+  cursor: pointer;
+}
+
+.omnibox-input {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  padding: 6px 4px;
+}
+
+.omnibox-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.omnibox-shortcut-kbd {
+  font-family: var(--font-family-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+}
+
+.omnibox-clear-btn {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-surface);
+}
+
+.omnibox-clear-btn:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-danger-bg);
+}
+
+/* Panel de Inteligencia de Búsqueda (Poblado en Tiempo Real + Contenido + Estadísticas) */
+.search-intelligence-hub {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-brand-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.search-hub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--color-border-default);
+  padding-bottom: var(--space-3);
+}
+
+.search-hub-title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.search-query-badge {
+  background-color: var(--color-info-bg);
+  color: var(--color-brand-primary);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+
+.search-hub-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--space-4);
+}
+
+.search-populated-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-height: 310px;
+  overflow-y: auto;
+  padding-right: var(--space-1);
+}
+
+.search-result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-result-card:hover,
+.search-result-card.is-selected {
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-bg-surface-elevated);
+}
+
+.search-result-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.search-result-title {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.search-result-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.search-content-inspector {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.inspector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-default);
+  padding-bottom: var(--space-2);
+}
+
+.inspector-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.inspector-field-item {
+  background-color: var(--color-bg-secondary);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.inspector-field-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+.inspector-field-value {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Barra de Filtro Local por Módulo */
+.module-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.filter-input-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 260px;
+}
+
+.module-search-input {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.module-search-input:focus {
+  border-color: var(--color-brand-primary);
+}
+
+.filter-pills-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.filter-pill-btn {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-default);
+  transition: all var(--transition-fast);
+}
+
+.filter-pill-btn:hover,
+.filter-pill-btn.is-active {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-brand-primary);
+}
+
+@media (max-width: 1100px) {
+  .search-hub-grid {
+    grid-template-columns: 1fr;
+  }
+}

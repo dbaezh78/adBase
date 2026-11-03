@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="palette-oscuro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contabilidad dBase - Accounting dBase: Base de datos para Contabilidad Modular de Alto Rendimiento con Integración Windows Server AD y Firebase" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Contabilidad dBase | Accounting dBase - Base de datos para Contabilidad</title>
+  <link rel="icon" type="image/jpeg" href="./src/img/icons/easy-data-accounting-favicon.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="./src/img/icons/easy-data-accounting-favicon.jpg" />
+  <link rel="apple-touch-icon" href="./src/img/icons/easy-data-accounting-favicon.jpg" />
+
+  <!-- Hojas de Estilo Modulares (/src/css) - Cero CSS en archivos HTML -->
+  <link rel="stylesheet" href="./src/css/core/design-tokens-variables.css" />
+  <link rel="stylesheet" href="./src/css/core/themes-and-palettes.css" />
+  <link rel="stylesheet" href="./src/css/core/reset-and-base-elements.css" />
+  <link rel="stylesheet" href="./src/css/layout/application-shell-grid.css" />
+  <link rel="stylesheet" href="./src/css/components/search-omnibox-and-filters.css" />
+  <link rel="stylesheet" href="./src/css/components/statistics-cards-and-charts.css" />
+  <link rel="stylesheet" href="./src/css/components/data-tables-and-ledgers.css" />
+  <link rel="stylesheet" href="./src/css/components/forms-modals-and-buttons.css" />
+  <link rel="stylesheet" href="./src/css/modules/pos-terminal-and-modules.css" />
+  <link rel="stylesheet" href="./src/css/modules/auth-connections-ldap-radius.css" />
+  <link rel="stylesheet" href="./src/css/modules/login-and-authentication-gate.css" />
+
+  <!-- Import Map Estándar para ejecutar SDK de Firebase sin bloqueos de Analytics -->
+  <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js",
+        "firebase/firestore": "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="erp-app-shell">
+    <!-- Cabecera Superior con Omnibox de Búsqueda Poblada + Estadísticas y Telemetría -->
+    <header class="erp-top-header">
+      <div class="erp-brand-identity">
+        <img
+          src="./src/img/logos/easy-data-accounting-brand-logo.jpg"
+          alt="Logo Contabilidad dBase"
+          class="erp-brand-logo"
+        />
+        <div class="erp-brand-titles">
+          <span class="erp-brand-name">Contabilidad dBase</span>
+          <span class="erp-brand-subtitle">Base de datos para Contabilidad</span>
+        </div>
+      </div>
+
+      <!-- Buscador Universal Inteligente y Comando T-Code -->
+      <div class="erp-omnibox-container" role="search">
+        <div class="erp-omnibox-wrapper">
+          <select id="global-omnibox-scope-select" class="omnibox-scope-select" aria-label="Ámbito de búsqueda">
+            <option value="ALL">TODOS LOS MÓDULOS</option>
+            <option value="settings">EMPRESAS Y CONFIGURACIÓN</option>
+            <option value="chart-of-accounts">CATÁLOGO DE CUENTAS</option>
+            <option value="journal-entries">ASIENTOS CONTABLES</option>
+            <option value="bank-reconciliation">CONCILIACIÓN BANCARIA</option>
+            <option value="point-of-sale">PUNTO DE VENTA (POS)</option>
+            <option value="payroll">NÓMINA Y RRHH</option>
+            <option value="users-windows">USUARIOS WINDOWS AD</option>
+            <option value="security">SEGURIDAD Y AUDITORÍA</option>
+          </select>
+          <input
+            type="search"
+            id="global-omnibox-search-input"
+            class="omnibox-input"
+            placeholder="Buscar RNC, empresa, cuenta, asiento, monto, empleado o T-Code (CFG01, FB50, COA01)... [Ctrl+K]"
+            autocomplete="off"
+          />
+          <kbd class="omnibox-shortcut-kbd">Ctrl+K</kbd>
+          <button type="button" id="btn-clear-omnibox-search" class="omnibox-clear-btn" title="Limpiar búsqueda">
+            Limpiar
+          </button>
+        </div>
+      </div>
+
+      <!-- Indicadores de Empresa Activa (SAP Logon), Configuración de Temas, Windows AD y Firebase -->
+      <div class="erp-header-telemetry">
+        <button
+          type="button"
+          id="btn-header-open-company-selector"
+          class="telemetry-pill"
+          title="Abrir Selector de Empresa SAP Logon 800 y Creación de Sociedad (T-Code: CFG01)"
+        >
+          <img
+            id="header-active-company-logo"
+            src="./src/img/logos/easy-data-accounting-brand-logo.jpg"
+            alt="Logo Empresa Activa"
+            class="telemetry-company-logo"
+          />
+          <span class="status-dot status-dot-online"></span>
+          <span id="header-active-company-label">LA ANTILLANA (101-88921-2)</span>
+        </button>
+
+        <button
+          type="button"
+          id="btn-header-open-settings"
+          class="telemetry-pill"
+          title="Personalizar Temas (Claro, Oscuro, Azul y por Nombre) y Configuración"
+        >
+          <span id="header-active-theme-label">Tema: Oscuro</span>
+        </button>
+
+        <div class="telemetry-pill" title="Conexión Activa a Firebase Cloud (easy-data-accounting)">
+          <img
+            src="./src/img/icons/firebase-cloud-database-icon.svg"
+            alt="Firebase DB"
+            class="telemetry-pill-icon"
+          />
+          <span>Firebase: easy-data-accounting</span>
+        </div>
+
+        <div class="telemetry-pill" title="Integración con Controlador de Dominio Windows Server Active Directory">
+          <img
+            src="./src/img/icons/windows-active-directory-server-icon.svg"
+            alt="Windows Server AD"
+            class="telemetry-pill-icon"
+          />
+          <span id="header-active-ad-user">CORP\dbaezh</span>
+        </div>
+
+        <button
+          type="button"
+          id="btn-header-logout"
+          class="telemetry-logout-btn"
+          title="Cerrar sesión actual y volver al Control de Acceso Web"
+        >
+          <span>Salir</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Navegación Lateral de Módulos 100% Independientes -->
+    <aside id="erp-sidebar-navigation" class="erp-sidebar" aria-label="Menú de Módulos Independientes"></aside>
+
+    <!-- Área Principal de Trabajo -->
+    <main class="erp-main-workspace">
+      <!-- Panel Global de Poblado de Búsqueda, Contenido Detallado y Estadísticas en Tiempo Real -->
+      <section id="global-search-intelligence-panel" class="search-intelligence-hub is-hidden" aria-label="Resultados de Búsqueda Inteligente y Estadísticas">
+        <div class="search-hub-header">
+          <div class="search-hub-title-group">
+            <span class="badge-pill badge-info">MOTOR DE BÚSQUEDA POBLADO EN TIEMPO REAL</span>
+            <span id="search-active-query-label" class="search-query-badge">Término: *</span>
+            <span id="search-active-count-label" class="badge-pill badge-success">0 coincidencias</span>
+          </div>
+          <button type="button" id="btn-close-search-intelligence" class="btn-action btn-secondary btn-xs">
+            Cerrar Panel de Búsqueda (ESC)
+          </button>
+        </div>
+
+        <!-- Estadísticas Dinámicas de la Búsqueda Actual -->
+        <div id="search-live-statistics-cards" class="stats-kpi-grid"></div>
+
+        <!-- Contenido Poblado + Inspector Detallado -->
+        <div class="search-hub-grid">
+          <div class="enterprise-panel">
+            <div class="enterprise-panel-header">
+              <h3 class="enterprise-panel-title">Registros Poblados por la Búsqueda</h3>
+              <span class="badge-pill badge-purple">Click para mostrar contenido completo</span>
+            </div>
+            <div class="enterprise-panel-body">
+              <div id="search-populated-records-container" class="search-populated-list"></div>
+            </div>
+          </div>
+
+          <div class="enterprise-panel">
+            <div class="enterprise-panel-header">
+              <h3 class="enterprise-panel-title">Contenido Completo y Auditoría del Registro</h3>
+              <button type="button" id="btn-jump-to-source-module" class="btn-action btn-primary btn-xs">
+                Abrir en su Módulo Independiente
+              </button>
+            </div>
+            <div class="enterprise-panel-body">
+              <div id="search-record-content-inspector" class="search-content-inspector"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenedor Dinámico donde se Monta el Módulo Independiente Activo -->
+      <div id="erp-dynamic-module-viewport"></div>
+    </main>
+
+    <!-- Barra de Estado Inferior -->
+    <footer class="erp-bottom-statusbar">
+      <div class="statusbar-group">
+        <span class="statusbar-item">
+          <span class="status-dot status-dot-online"></span>
+          <strong>Tiempo de Carga:</strong>
+          <span id="statusbar-boot-time">Instantáneo</span>
+        </span>
+        <span class="statusbar-item">
+          <strong>Módulo Activo:</strong>
+          <span id="statusbar-active-module">Catálogo de Cuentas (COA01)</span>
+        </span>
+        <span class="statusbar-item">
+          <strong>Motor Base de Datos:</strong>
+          <span id="statusbar-active-db">Google Firebase Cloud (easy-data-accounting)</span>
+        </span>
+      </div>
+      <div class="statusbar-group">
+        <span id="statusbar-ad-server-label" class="statusbar-item">
+          <strong>Conector Windows (LA ANTILLANA):</strong> LDAP 172.16.4.2:389
+        </span>
+        <span class="statusbar-item">
+          <strong>Seguridad:</strong> 13 Módulos Independientes Acoplados
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Control de Entrada y Pantalla de Login Web -->
+  <div id="erp-login-auth-gate" class="erp-login-auth-gate is-hidden"></div>
+
+  <!-- Contenedor de Alertas y Auditoría -->
+  <div id="erp-global-toast-container" class="erp-toast-container" aria-live="polite"></div>
+
+  <!-- Punto de Entrada Modular -->
+  <script type="module" src="./src/js/core/application-bootstrap-orchestrator.js"></script>
+</body>
+</html>
