@@ -132,8 +132,8 @@ export const LoginGateManager = {
                 id="login-username-input"
                 type="text"
                 class="login-input-control font-mono"
-                placeholder="${this.activeLoginTab === "PASSWORD" ? "ej. laantillana\\dbaezh o dbaezh@laantillana.com" : "ej. dbaezh@laantillana.com"}"
-                value="laantillana\\dbaezh"
+                placeholder="${this.activeLoginTab === "PASSWORD" ? "ej. usuario@empresa.com o dominio\\usuario" : "ej. usuario@empresa.com"}"
+                value=""
                 required
                 autocomplete="username"
               />
@@ -151,8 +151,8 @@ export const LoginGateManager = {
                     id="login-password-input"
                     type="password"
                     class="login-input-control"
-                    placeholder="Contraseña de Windows AD o Contraseña Local"
-                    value="laantillana2026*"
+                    placeholder="Introduzca su contraseña"
+                    value=""
                     required
                     autocomplete="current-password"
                   />
@@ -170,8 +170,8 @@ export const LoginGateManager = {
                   type="text"
                   maxlength="16"
                   class="login-input-control font-mono"
-                  placeholder="ej. K9M4P8X2W7R5Q3N6"
-                  value="K9M4P8X2W7R5Q3N6"
+                  placeholder="Introduzca código de 16 caracteres"
+                  value=""
                   required
                 />
               </div>
@@ -179,7 +179,7 @@ export const LoginGateManager = {
 
             <div class="login-options-row">
               <label class="login-checkbox-label">
-                <input type="checkbox" id="login-remember-me" checked />
+                <input type="checkbox" id="login-remember-me" />
                 <span>Recordar sesión en este equipo</span>
               </label>
             </div>
